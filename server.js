@@ -33,7 +33,20 @@ console.log(`running on localhost: ${port}`);
 // ~~~~~~ Routes ~~~~~~
 
 // ( GET )
+app.get('/data', getData);
 
-
+function getData (req, res) {
+    res.send(projectData);
+};
 
 // ( Post )
+app.post('/data', addData);
+
+function addData(req, res) {
+    console.log(req.body);
+
+    projectData.date = req.body.date;
+    projectData.temp = req.body.temp;
+    projectData.feelings = req.body.feelings;
+
+}
